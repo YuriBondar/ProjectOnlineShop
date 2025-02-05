@@ -1,76 +1,73 @@
 ﻿
 
 
-The project description is provided in English and German.
 
-################################################################################################################################
-ENGLISH DESCRIPTION
-################################################################################################################################
 
-### 1.Project Description
+# 1.Project Description
 
 This project is a backend server for a customer, product, and order management system for an online store.
+
+The project description is provided in English and German.
 
 Registration in the system with two access levels: 
 - user for customers
 - admin for employees.
 
-################################################################################################################################
 
-### 2.Technologies:
+
+# 2.Technologies:
 
 ASP.NET Core 8.0 (C#) – Backend framework  
 Entity Framework Core 8.0 & MySQL 8.0 – ORM and database  
 ASP.NET Core Identity & JWT Authentication – Secure user authentication and role management  
 
-#################################################################################################################################
 
-### 3.Database Structure
 
-# Table customers
-- `CustomerID` (INT, PRIMARY KEY, AUTO_INCREMENT) – Unique customer ID
-- `IdentityUserID` (VARCHAR(50), NOT NULL) – Customer's unique ID in ASP.NET Core Identity
-- `CustomerEmail` (VARCHAR(50), UNIQUE, NOT NULL) 
-- `CustomerLastName` (VARCHAR(50), NOT NULL) 
-- `CustomerFirstName` (VARCHAR(50), NOT NULL) 
-- `CustomerCity` (VARCHAR(50), NOT NULL) 
-- `CustomerStreet` (VARCHAR(50), NOT NULL) 
-- `CustomerHausNumber` (VARCHAR(30), NOT NULL) 
-- `CustomerPostIndex` (VARCHAR(30), NOT NULL) 
-- `CustomerPhone` (VARCHAR(30), NOT NULL) 
+# 3.Database Structure
 
-# Table products  
-- `ProductID` (INT, PRIMARY KEY) – Unique product ID  
-- `ProductSCU` (VARCHAR(50), UNIQUE, NOT NULL) – Unique product SKU code  
-- `ProductName` (VARCHAR(50), NOT NULL) – Product name  
-- `Category` (VARCHAR(50), NOT NULL) – Product category  
-- `UnitPrice` (DECIMAL(18,2), NOT NULL) – Price per unit  
-- `StockQuantity` (INT, NOT NULL) – Available stock quantity
+ Table customers
+- `CustomerID` – Unique customer ID
+- `IdentityUserID`  – Customer's unique ID in ASP.NET Core Identity
+- `CustomerEmail` 
+- `CustomerLastName`
+- `CustomerFirstName` 
+- `CustomerCity` 
+- `CustomerStreet` 
+- `CustomerHausNumber` 
+- `CustomerPostIndex` 
+- `CustomerPhone` 
 
-# Table shopOrders  
-- `ShopOrderID` (INT, PRIMARY KEY) – Unique order ID  
-- `CustomerID` (INT, FOREIGN KEY -> customers.CustomerID, NOT NULL) – Customer who placed the order  
-- `ShopOrderStatusID` (INT, FOREIGN KEY -> shopOrderStatus.ShopOrderStatusID, NOT NULL) – Order status  
-- `ShopOrderAcceptedAt` (DATETIME, NOT NULL) – Date and time when the order was accepted  
-- `ShopOrderShippedAt` (DATETIME, NULL) – Date and time when the order was shipped  
-- `ShopOrderCompletedAt` (DATETIME, NULL) – Date and time when the order was completed 
+ Table products  
+- `ProductID` – Unique product ID  
+- `ProductSCU`  – Unique product SKU code  
+- `ProductName`  
+- `Category`  
+- `UnitPrice` – Price per unit  
+- `StockQuantity` – Available stock quantity
 
-# Table shopOrderProducts  
-- `ShopOrderID` (INT, FOREIGN KEY -> shopOrders.ShopOrderID, NOT NULL) – Order ID  
-- `ProductID` (INT, FOREIGN KEY -> products.ProductID, NOT NULL) – Product ID  
-- `ProductQuantity` (INT, NOT NULL) – Quantity of the product in the order
+ Table shopOrders  
+- `ShopOrderID`
+- `CustomerID` 
+- `ShopOrderStatusID` 
+- `ShopOrderAcceptedAt` 
+- `ShopOrderShippedAt`  
+- `ShopOrderCompletedAt` 
 
-# Table shopOrderStatuses  
-- `ShopOrderStatusID` (INT, PRIMARY KEY) – Unique order status ID  
-- `ShopOrderStatusName` (VARCHAR(50), NOT NULL) – Name of the order status  
+ Table shopOrderProducts  
+- `ShopOrderID` 
+- `ProductID`  
+- `ProductQuantity` – Quantity of the product in the order
 
-#############################################################################################################################################
+ Table shopOrderStatuses  
+- `ShopOrderStatusID` 
+- `ShopOrderStatusName`  
 
-### 4.API Endpoints
 
-----------------------------------------------------------------------------------------------------------------------------------------------
 
-1. Admin Registration
+# 4.API Endpoints
+
+
+## 1. Admin Registration
 POST /api/Auth/registerAdmin
 
 Access Level: 
@@ -99,7 +96,7 @@ json
 
 ----------------------------------------------------------------------------------------------------------------------------------------------
 
-2. Customer Registration
+## 2. Customer Registration
 POST /api/Auth/registerCustomer
 
 Access Level: 
@@ -141,7 +138,7 @@ json
 
 ------------------------------------------------------------------------------------------------------------------------------------------------
 
-3. Customer Registration
+## 3. Customer Registration
 POST /api/auth/login
 
 Access Level: 
@@ -181,7 +178,7 @@ json
 ------------------------------------------------------------------------------------------------------------------------------------------------
 
 
-4. Password Change
+## 4. Password Change
 POST /api/auth/updatePassword/{userID}
 
 Access Level: 
@@ -205,7 +202,7 @@ json
 
 ------------------------------------------------------------------------------------------------------------------------------------------------
 
-5. Get Customer By ID
+## 5. Get Customer By ID
 GET /api/Customer/get/{userID}
 
 Access Level: 
@@ -234,7 +231,7 @@ json
 ------------------------------------------------------------------------------------------------------------------------------------------------
 
 
-6. Get information about all customers
+## 6. Get information about all customers
 GET /api/Customer/getAll
 
 Access Level: 
@@ -273,19 +270,6 @@ json
             "customerPostIndex": "1234",
             "customerPhone": "66499970770",
             "shopOrders": null
-        },
-        {
-            "customerID": 3,
-            "identityUserID": "140ff0f2-e784-4ddb-a07e-e17a7e9209c1",
-            "customerEmail": "marta.mustermann@gmail.com",
-            "customerLastName": "Mustermann",
-            "customerFirstName": "Marta",
-            "customerCity": "Wien",
-            "customerStreet": "Musterstraße",
-            "customerHausNumber": "12A",
-            "customerPostIndex": "1234",
-            "customerPhone": "066455570770",
-            "shopOrders": null
         }
     ]
 }
@@ -293,7 +277,7 @@ json
 ------------------------------------------------------------------------------------------------------------------------------------------------
 
 
-7. Searching customer
+## 7. Searching customer
 GET /api/Customer/search
 
 Access Level: 
@@ -346,7 +330,7 @@ json
 ------------------------------------------------------------------------------------------------------------------------------------------------
 
 
-8. Add a new product
+## 8. Add a new product
 POST /api/Product/add
 
 Access Level: 
@@ -375,7 +359,7 @@ json
 ------------------------------------------------------------------------------------------------------------------------------------------------
 
 
-9. Update the product
+## 9. Update the product
 POST /api/Product/update/{productId}
 
 Access Level: 
@@ -402,7 +386,7 @@ json
 ------------------------------------------------------------------------------------------------------------------------------------------------
 
 
-10. Get information about all products
+## 10. Get information about all products
 GET /api/Product/getAll
 
 Access Level: 
@@ -434,22 +418,13 @@ json
             "stockQuantity": 250,
             "shopOrderProducts": null
         }
-        {
-            "productID": 4,
-            "productSCU": "ST205",
-            "productName": "Samsung A40",
-            "category": "Smartphone",
-            "unitPrice": 999.99,
-            "stockQuantity": 100,
-            "shopOrderProducts": null
-        }
     ]
 }
 
 ------------------------------------------------------------------------------------------------------------------------------------------------
 
 
-11. Add order
+## 11. Add order
 POST /api/Order/{userId}
 
 Access Level: 
@@ -491,7 +466,7 @@ json
 ------------------------------------------------------------------------------------------------------------------------------------------------
 
 
-12. Get all orders for particular customer
+## 12. Get all orders for particular customer
 POST /api/Order/getAllFor{userId}
 
 Access Level: 
@@ -533,12 +508,7 @@ json
 
 
 
-
-################################################################################################################################
-DEUTSCH BESCHREIBUNG
-################################################################################################################################
-
-### 1. Projektbeschreibung
+# 1. Projektbeschreibung
 
 Dieses Projekt ist ein Backend-Server für ein Kunden-, Produkt- und Bestellverwaltungssystem für einen Online-Shop.
 
@@ -547,60 +517,61 @@ Registrierung im System mit zwei Zugriffsebenen:
 - Benutzer für Kunden
 - Administrator für Mitarbeiter
 
-################################################################################################################################
 
-### 2. Technologien:
+
+# 2. Technologien:
 
 ASP.NET Core 8.0 (C#) – Backend-Framework
 Entity Framework Core 8.0 & MySQL 8.0 – ORM und Datenbank
 ASP.NET Core Identity & JWT-Authentifizierung – Sichere Benutzeranmeldung und Rollenverwaltung
 
-#################################################################################################################################
 
-### 3.Tabelle customers
-CustomerID (INT, PRIMARY KEY, AUTO_INCREMENT) – Eindeutige Kunden-ID
-IdentityUserID (VARCHAR(50), NOT NULL) – Eindeutige Kunden-ID in ASP.NET Core Identity
-CustomerEmail (VARCHAR(50), UNIQUE, NOT NULL)
-CustomerLastName (VARCHAR(50), NOT NULL)
-CustomerFirstName (VARCHAR(50), NOT NULL)
-CustomerCity (VARCHAR(50), NOT NULL)
-CustomerStreet (VARCHAR(50), NOT NULL)
-CustomerHausNumber (VARCHAR(30), NOT NULL)
-CustomerPostIndex (VARCHAR(30), NOT NULL)
-CustomerPhone (VARCHAR(30), NOT NULL)
+
+# 3.Datenbankstruktur
+
+Tabelle customers
+CustomerID 
+IdentityUserID 
+CustomerEmail 
+CustomerLastName 
+CustomerFirstName 
+CustomerCity 
+CustomerStreet 
+CustomerHausNumber 
+CustomerPostIndex 
+CustomerPhone 
 
 Tabelle products
-ProductID (INT, PRIMARY KEY) – Eindeutige Produkt-ID
-ProductSCU (VARCHAR(50), UNIQUE, NOT NULL) – Eindeutige Produkt-SKU
-ProductName (VARCHAR(50), NOT NULL) – Produktname
-Category (VARCHAR(50), NOT NULL) – Produktkategorie
-UnitPrice (DECIMAL(18,2), NOT NULL) – Preis pro Einheit
-StockQuantity (INT, NOT NULL) – Verfügbare Lagerbestände
+ProductID 
+ProductSCU 
+ProductName 
+Category 
+UnitPrice 
+StockQuantity – Verfügbare Lagerbestände
 
 Tabelle shopOrders
-ShopOrderID (INT, PRIMARY KEY) – Eindeutige Bestell-ID
-CustomerID (INT, FOREIGN KEY -> customers.CustomerID, NOT NULL) – Kunde, der die Bestellung aufgegeben hat
-ShopOrderStatusID (INT, FOREIGN KEY -> shopOrderStatus.ShopOrderStatusID, NOT NULL) – Bestellstatus
-ShopOrderAcceptedAt (DATETIME, NOT NULL) – Datum und Uhrzeit der Bestellannahme
-ShopOrderShippedAt (DATETIME, NULL) – Datum und Uhrzeit des Versands
-ShopOrderCompletedAt (DATETIME, NULL) – Datum und Uhrzeit der abgeschlossenen Bestellung
+ShopOrderID 
+CustomerID 
+ShopOrderStatusID 
+ShopOrderAcceptedAt 
+ShopOrderShippedAt 
+ShopOrderCompletedAt 
 
 Tabelle shopOrderProducts
-ShopOrderID (INT, FOREIGN KEY -> shopOrders.ShopOrderID, NOT NULL) – Bestell-ID
-ProductID (INT, FOREIGN KEY -> products.ProductID, NOT NULL) – Produkt-ID
-ProductQuantity (INT, NOT NULL) – Anzahl des Produkts in der Bestellung
+ShopOrderID 
+ProductID 
+ProductQuantity - Anzahl des Produkts in der Bestellung
 
 Tabelle shopOrderStatuses
-ShopOrderStatusID (INT, PRIMARY KEY) – Eindeutige Bestellstatus-ID
-ShopOrderStatusName (VARCHAR(50), NOT NULL) – Name des Bestellstatus
+ShopOrderStatusID 
+ShopOrderStatusName 
 
-#############################################################################################################################################
 
-### 4.API Endpoints
+# 4.API Endpoints
 
-----------------------------------------------------------------------------------------------------------------------------------------------
 
-1. Administrator-Registrierung
+
+## 1. Administrator-Registrierung
 POST /api/Auth/registerAdmin
 
 Zugriffsebene:
@@ -627,9 +598,9 @@ json
     "temporaryPassword": "TemporaryPassword1!"
 }
 
-----------------------------------------------------------------------------------------------------------------------------------------------
 
-2. Kundenregistrierung
+
+## 2. Kundenregistrierung
 POST /api/Auth/registerCustomer
 
 Zugriffsebene:
@@ -662,9 +633,9 @@ json
     "userId": "140ff0f2-e784-4ddb-a07e-e17a7e9209c1"
 }
 
-------------------------------------------------------------------------------------------------------------------------------------------------
 
-3. Anmeldung eines Benutzers
+
+## 3. Anmeldung eines Benutzers
 POST /api/auth/login
 
 Zugriffsebene:
@@ -699,10 +670,9 @@ json
     }
 }
 
-------------------------------------------------------------------------------------------------------------------------------------------------
 
 
-4. Passwort ändern
+## 4. Passwort ändern
 POST /api/auth/updatePassword/{userID}
 
 Zugriffsebene:
@@ -724,9 +694,9 @@ json
     "message": "Password changed successfully"
 }
 
-------------------------------------------------------------------------------------------------------------------------------------------------
 
-5. Kunde nach ID abrufen
+
+## 5. Kunde nach ID abrufen
 GET /api/Customer/get/{userID}
 
 Zugriffsebene:
@@ -752,10 +722,8 @@ json
     "shopOrders": null
 }
 
-------------------------------------------------------------------------------------------------------------------------------------------------
 
-
-6. Informationen über alle Kunden abrufen
+## 6. Informationen über alle Kunden abrufen
 GET /api/Customer/getAll
 
 Zugriffslevel:
@@ -794,27 +762,13 @@ json
             "customerPostIndex": "1234",
             "customerPhone": "66499970770",
             "shopOrders": null
-        },
-        {
-            "customerID": 3,
-            "identityUserID": "140ff0f2-e784-4ddb-a07e-e17a7e9209c1",
-            "customerEmail": "marta.mustermann@gmail.com",
-            "customerLastName": "Mustermann",
-            "customerFirstName": "Marta",
-            "customerCity": "Wien",
-            "customerStreet": "Musterstraße",
-            "customerHausNumber": "12A",
-            "customerPostIndex": "1234",
-            "customerPhone": "066455570770",
-            "shopOrders": null
         }
     ]
 }
 
-------------------------------------------------------------------------------------------------------------------------------------------------
 
 
-7. Kunden suchen
+## 7. Kunden suchen
 GET /api/Customer/search
 
 Zugriffslevel:
@@ -864,10 +818,9 @@ json
     ]
 }
 
-------------------------------------------------------------------------------------------------------------------------------------------------
 
 
-8. Neues Produkt hinzufügen
+## 8. Neues Produkt hinzufügen
 POST /api/Product/add
 
 Zugriffslevel:
@@ -893,10 +846,10 @@ json
      "message": "Operation successful"
 }
 
-------------------------------------------------------------------------------------------------------------------------------------------------
 
 
-9. Produkt aktualisieren
+
+## 9. Produkt aktualisieren
 POST /api/Product/update/{productId}
 
 Zugriffslevel:
@@ -920,10 +873,9 @@ json
      "message": "Operation successful"
 }
 
-------------------------------------------------------------------------------------------------------------------------------------------------
 
 
-10. Informationen über alle Produkte abrufen
+## 10. Informationen über alle Produkte abrufen
 GET /api/Product/getAll
 
 Zugriffslevel:
@@ -970,7 +922,7 @@ json
 ------------------------------------------------------------------------------------------------------------------------------------------------
 
 
-11. Bestellung hinzufügen
+## 11. Bestellung hinzufügen
 POST /api/Order/{userId}
 
 Zugriffslevel:
@@ -1014,7 +966,7 @@ json
 ------------------------------------------------------------------------------------------------------------------------------------------------
 
 
-12. Alle Bestellungen eines bestimmten Kunden abrufen
+## 12. Alle Bestellungen eines bestimmten Kunden abrufen
 POST /api/Order/getAllFor{userId}
 
 Zugriffslevel:
