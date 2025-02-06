@@ -578,6 +578,15 @@ Logging (Serilog)
 
 # 3. Projektstruktur
 
+## 📂 Application
+
+- 📂 DTOs – Alle DTOs für die Geschäftslogik mit Validierung
+- 📂 Services – Geschäftslogik für API-Anfragen
+  - 📄 IAuthService.cs
+  - 📄 ICustomerService.cs
+  - 📄 IOrderService.cs
+  - 📄 IProductService.cs
+  - 
 ```
 ProjectEverythingForHomeOnlineShop
 │── Application
