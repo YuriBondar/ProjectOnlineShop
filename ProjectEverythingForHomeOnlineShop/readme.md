@@ -1,7 +1,7 @@
 ﻿
 
 
-# 1.Project Description
+# 1. Project Description
 
 This project is a backend server for a customer, product, and order management system for an online store.
 
@@ -13,14 +13,14 @@ Registration in the system with two access levels:
 
 
 
-# 2.Technologies:
+# 2. Technologies:
 
-ASP.NET Core 8.0 (C#) 
-Entity Framework Core 8.0 
-MySQL 8.0 
-ASP.NET Core Identity Framework
-JWT Authentication 
-Logging (Serilog)
+ASP.NET Core 8.0 (C#)   
+Entity Framework Core 8.0   
+MySQL 8.0   
+ASP.NET Core Identity Framework  
+JWT Authentication   
+Logging (Serilog)  
 
 
 # 3. Project Structure
@@ -113,7 +113,7 @@ ProjectEverythingForHomeOnlineShop
 
 
 
-# 5.API Endpoints
+# 5. API Endpoints
 
 
 ## 1. Admin Registration
@@ -166,6 +166,7 @@ Customer – for business processes
 
 Request Body:
 json
+```
 {
   "userName": "usernew",
   "password": "Hello12345!",
@@ -185,7 +186,7 @@ json
     "message": "User registered successfully",
     "userId": "140ff0f2-e784-4ddb-a07e-e17a7e9209c1"
 }
-
+```
 ------------------------------------------------------------------------------------------------------------------------------------------------
 
 ## 3. Customer Registration
@@ -202,6 +203,7 @@ In response, the user receives a token, token expiration date, and user ID.
 
 Request Body:
 json
+```
 {
    "userName": "usernew",
     "userPassword": "Hello12345!",
@@ -224,7 +226,7 @@ json
         "userID": "140ff0f2-e784-4ddb-a07e-e17a7e9209c1"
     }
 }
-
+```
 ------------------------------------------------------------------------------------------------------------------------------------------------
 
 
@@ -239,6 +241,7 @@ The server must receive the old and new password from the authenticated user.
 
 Request Body:
 json
+```
 {
     "currentUserPassword": "TemporaryPassword1!",
     "newUserPassword": "admin2Password1!"
@@ -249,7 +252,7 @@ json
 {
     "message": "Password changed successfully"
 }
-
+```
 ------------------------------------------------------------------------------------------------------------------------------------------------
 
 ## 5. Get Customer By ID
