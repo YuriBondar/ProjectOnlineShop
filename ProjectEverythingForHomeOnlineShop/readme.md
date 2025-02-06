@@ -580,6 +580,7 @@ Logging (Serilog)
 
 ## 📂 Application
 
+
 - 📂 DTOs – Alle DTOs für die Geschäftslogik mit Validierung
 - 📂 Services – Geschäftslogik für API-Anfragen
   - 📄 IAuthService.cs
