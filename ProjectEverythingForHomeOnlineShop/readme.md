@@ -25,6 +25,7 @@ Logging (Serilog)
 
 # 3. Project Structure
 
+```
 ProjectEverythingForHomeOnlineShop
 │── Application
 │   ├── DTOs        <!-- All dtos for Business logic with validation  -->       
@@ -68,7 +69,7 @@ ProjectEverythingForHomeOnlineShop
 │── appsettings.Development.json
 │── Program.cs
 │── ProjectEverythingForHomeOnlineShop.http
-
+```
 
 
 # 4.Database Structure
@@ -129,6 +130,7 @@ which the new administrator can change to their own after authentication.
 
 Request Body:
 json
+```
 {
   "adminName": "adminNew",
   "adminEmail": "adminNew@gmail.com"
@@ -141,7 +143,7 @@ json
     "adminId": "2bdaf47f-4196-4cbc-b0c0-c96f47b8e065",
     "temporaryPassword": "TemporaryPassword1!"
 }
-
+```
 ----------------------------------------------------------------------------------------------------------------------------------------------
 
 ## 2. Customer Registration
@@ -581,13 +583,6 @@ Logging (Serilog)
 ## 📂 Application
 
 
-- 📂 DTOs – Alle DTOs für die Geschäftslogik mit Validierung
-- 📂 Services – Geschäftslogik für API-Anfragen
-  - 📄 IAuthService.cs
-  - 📄 ICustomerService.cs
-  - 📄 IOrderService.cs
-  - 📄 IProductService.cs
-  - 
 ```
 ProjectEverythingForHomeOnlineShop
 │── Application
