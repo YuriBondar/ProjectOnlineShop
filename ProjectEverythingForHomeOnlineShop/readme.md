@@ -581,8 +581,8 @@ Logging (Serilog)
 ```
 ProjectEverythingForHomeOnlineShop
 │── Application
-│   ├── DTOs         <!-- Alle DTOs für die Geschäftslogik mit Validierung  -->       
-│   ├── Services     <!-- Geschäftslogik für API-Anfragen -->
+│   ├── DTOs         # Alle DTOs für die Geschäftslogik mit Validierung     
+│   ├── Services     # Geschäftslogik für API-Anfragen 
 │   │   ├── Implementations
 │   │   ├── IAuthService.cs
 │   │   ├── ICustomerService.cs
