@@ -72,7 +72,7 @@ ProjectEverythingForHomeOnlineShop
 ```
 
 
-# 4.Database Structure
+# 4. Database Structure
 
  Table customers
 - `CustomerID` – Unique customer ID
@@ -267,6 +267,7 @@ Retrieving all customer data.
 
 Response (200 OK):
 json
+```
 {
     "customerID": 3,
     "identityUserID": "140ff0f2-e784-4ddb-a07e-e17a7e9209c1",
@@ -280,7 +281,7 @@ json
     "customerPhone": "066455570770",
     "shopOrders": null
 }
-
+```
 ------------------------------------------------------------------------------------------------------------------------------------------------
 
 
