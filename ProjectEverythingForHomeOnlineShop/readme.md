@@ -578,7 +578,7 @@ Logging (Serilog)
 
 # 3. Projektstruktur
 
-
+```
 ProjectEverythingForHomeOnlineShop
 │── Application
 │   ├── DTOs         <!-- Alle DTOs für die Geschäftslogik mit Validierung  -->       
@@ -622,6 +622,7 @@ ProjectEverythingForHomeOnlineShop
 │── appsettings.Development.json
 │── Program.cs
 │── ProjectEverythingForHomeOnlineShop.http
+```
 
 # 4.Datenbankstruktur
 
