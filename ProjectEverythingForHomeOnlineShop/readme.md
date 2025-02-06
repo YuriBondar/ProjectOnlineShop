@@ -72,7 +72,7 @@ ProjectEverythingForHomeOnlineShop
 ```
 
 
-# 4.Database Structure
+# 4. Database Structure
 
  Table customers
 - `CustomerID` – Unique customer ID
@@ -267,6 +267,7 @@ Retrieving all customer data.
 
 Response (200 OK):
 json
+```
 {
     "customerID": 3,
     "identityUserID": "140ff0f2-e784-4ddb-a07e-e17a7e9209c1",
@@ -280,7 +281,7 @@ json
     "customerPhone": "066455570770",
     "shopOrders": null
 }
-
+```
 ------------------------------------------------------------------------------------------------------------------------------------------------
 
 
@@ -295,6 +296,7 @@ Retrieving data about all customers.
 
 Response (200 OK):
 json
+```
 {
     "message": "Operation successful",
     "customers": [
@@ -326,6 +328,7 @@ json
         }
     ]
 }
+```
 
 ------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -348,6 +351,7 @@ Searching for cities that contain "W" in their name, with other parameters as em
 
 Response (200 OK):
 json
+```
 {
     "message": "Operation successful",
     "customers": [
@@ -379,6 +383,7 @@ json
         }
     ]
 }
+```
 
 ------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -395,6 +400,7 @@ The SCU number is checked for uniqueness.
 
 Request Body:
 json
+```
 {
     "productSCU": "ST205",
     "productName": "Samsung A40",
@@ -408,7 +414,7 @@ json
 {
      "message": "Operation successful"
 }
-
+```
 ------------------------------------------------------------------------------------------------------------------------------------------------
 
 
@@ -425,6 +431,7 @@ The update data is validated for correct format.
 
 Request Body:
 json
+```
 {
     "unitPrice": 888.99,
     "stockQuantity": 250
@@ -435,6 +442,7 @@ json
 {
      "message": "Operation successful"
 }
+```
 
 ------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -450,6 +458,7 @@ Getting full information about all pruducts in database for admins (employees).
 
 Response (200 OK):
 json
+```
 {
     "message": "Operation successful",
     "products": [
@@ -473,6 +482,7 @@ json
         }
     ]
 }
+```
 
 ------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -495,6 +505,7 @@ After confirmation, the stock quantity is reduced based on the number of product
 
 Request Body:
 json
+```
 {
     "products": [
     {
@@ -515,6 +526,7 @@ json
 {
      "message": "Operation successful"
 }
+```
 
 ------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -531,6 +543,7 @@ The information contains data from multiple tables, including the order status a
 
 Response (200 OK):
 json
+```
 {
      "message": "Operation successful",
     "data": {
@@ -555,7 +568,7 @@ json
     }
 }
 
-
+```
 
 
 # DEUTSCH BESCHREIBUNG
@@ -574,16 +587,14 @@ Registrierung im System mit zwei Zugriffsebenen:
 
 # 2. Technologien:
 
-ASP.NET Core 8.0 (C#) 
-Entity Framework Core 8.0 
-MySQL 8.0 
-ASP.NET Core Identity Framework
-JWT Authentication 
-Logging (Serilog)
+ASP.NET Core 8.0 (C#)   
+Entity Framework Core 8.0   
+MySQL 8.0   
+ASP.NET Core Identity Framework  
+JWT Authentication   
+Logging (Serilog)  
 
 # 3. Projektstruktur
-
-## 📂 Application
 
 
 ```
@@ -632,7 +643,7 @@ ProjectEverythingForHomeOnlineShop
 │── ProjectEverythingForHomeOnlineShop.http
 ```
 
-# 4.Datenbankstruktur
+# 4. Datenbankstruktur
 
 Tabelle customers
 - `CustomerID` 
@@ -673,7 +684,7 @@ Tabelle shopOrderStatuses
   
 
 
-# 5.API Endpoints
+# 5. API Endpoints
 
 
 
@@ -691,6 +702,7 @@ Bei der Erstellung eines Administrators wird ein temporäres Passwort generiert,
 Anfrage:
 
 json
+```
 {
   "adminName": "adminNew",
   "adminEmail": "adminNew@gmail.com"
@@ -704,7 +716,7 @@ json
     "temporaryPassword": "TemporaryPassword1!"
 }
 
-
+```
 
 ## 2. Kundenregistrierung
 POST /api/Auth/registerCustomer
@@ -719,6 +731,7 @@ Nach erfolgreicher Erstellung wird ein neuer Eintrag in der customers-Tabelle an
 
 Anfrage::
 json
+```
 {
   "userName": "usernew",
   "password": "Hello12345!",
@@ -738,6 +751,7 @@ json
     "message": "User registered successfully",
     "userId": "140ff0f2-e784-4ddb-a07e-e17a7e9209c1"
 }
+```
 
 
 
@@ -753,6 +767,7 @@ Bei erfolgreicher Anmeldung erhält der Benutzer ein Token, ein Ablaufdatum und 
 
 Anfrage:
 json
+```
 {
    "userName": "usernew",
     "userPassword": "Hello12345!",
@@ -775,6 +790,7 @@ json
         "userID": "140ff0f2-e784-4ddb-a07e-e17a7e9209c1"
     }
 }
+```
 
 
 
@@ -789,6 +805,7 @@ Der Server muss das alte und das neue Passwort vom authentifizierten Benutzer er
 
 Anfrage:
 json
+```
 {
     "currentUserPassword": "TemporaryPassword1!",
     "newUserPassword": "admin2Password1!"
@@ -799,6 +816,7 @@ json
 {
     "message": "Password changed successfully"
 }
+```
 
 
 
@@ -814,6 +832,7 @@ Abrufen aller Kundendaten.
 
 Antwort (200 OK):
 json
+```
 {
     "customerID": 3,
     "identityUserID": "140ff0f2-e784-4ddb-a07e-e17a7e9209c1",
@@ -827,6 +846,7 @@ json
     "customerPhone": "066455570770",
     "shopOrders": null
 }
+```
 
 
 ## 6. Informationen über alle Kunden abrufen
@@ -840,6 +860,7 @@ Abrufen von Daten über alle Kunden.
 
 Antwort (200 OK):
 json
+```
 {
     "message": "Operation successful",
     "customers": [
@@ -871,6 +892,7 @@ json
         }
     ]
 }
+```
 
 
 
@@ -892,6 +914,7 @@ Sucht nach Städten, die den Buchstaben „W“ im Namen enthalten, während and
 
 Antwort (200 OK):
 json
+```
 {
     "message": "Operation successful",
     "customers": [
@@ -923,6 +946,7 @@ json
         }
     ]
 }
+```
 
 
 
@@ -938,6 +962,7 @@ Die SCU-Nummer wird auf ihre Einzigartigkeit überprüft.
 
 Anfrage:
 json
+```
 {
     "productSCU": "ST205",
     "productName": "Samsung A40",
@@ -951,7 +976,7 @@ json
 {
      "message": "Operation successful"
 }
-
+```
 
 
 
@@ -968,6 +993,7 @@ Die Aktualisierungsdaten werden auf ihr korrektes Format überprüft.
 
 Anfrage:
 json
+```
 {
     "unitPrice": 888.99,
     "stockQuantity": 250
@@ -978,6 +1004,7 @@ json
 {
      "message": "Operation successful"
 }
+```
 
 
 
@@ -992,6 +1019,7 @@ Abrufen vollständiger Informationen über alle Produkte in der Datenbank für A
 
 Antwort (200 OK):
 json
+```
 {
     "message": "Operation successful",
     "products": [
@@ -1024,6 +1052,7 @@ json
         }
     ]
 }
+```
 
 ------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -1048,6 +1077,7 @@ Anschließend wird die Lagerbestandsmenge basierend auf der bestellten Anzahl re
 
 Anfrage:
 json
+```
 {
     "products": [
     {
@@ -1068,7 +1098,7 @@ json
 {
      "message": "Operation successful"
 }
-
+```
 ------------------------------------------------------------------------------------------------------------------------------------------------
 
 
@@ -1084,6 +1114,7 @@ Die Informationen stammen aus mehreren Tabellen, einschließlich des Bestellstat
 
 Antwort (200 OK):
 json
+```
 {
      "message": "Operation successful",
     "data": {
@@ -1107,3 +1138,4 @@ json
         ]
     }
 }
+```
