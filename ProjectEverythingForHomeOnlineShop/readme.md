@@ -604,9 +604,9 @@ ProjectEverythingForHomeOnlineShop
 │   ├── Migrations
 │   ├── Persistence
 │   │   ├── Identity        
-│   │   │   ├── ApplicationUser.cs      <!-- Klasse für Entitäten in der Identität-Benutzertabelle -->
-│   │   ├── DatabaseInitializer.cs      <!-- Erstellt die Datenbank, falls sie nicht existiert, führt Migrationen beim Start der App durch -->
-│   │   ├── OnlineShopMySQLDatabaseContext.cs   <!-- Datenbankkontext mit allen Einstellungen für die Datenbank -->
+│   │   │   ├── ApplicationUser.cs      # Klasse für Entitäten in der Identität-Benutzertabelle 
+│   │   ├── DatabaseInitializer.cs      # Erstellt die Datenbank, falls sie nicht existiert, führt Migrationen beim Start der App durch 
+│   │   ├── OnlineShopMySQLDatabaseContext.cs   # Datenbankkontext mit allen Einstellungen für die Datenbank 
 │   ├── Repositories
 │   │   ├── Implementations
 │   │   ├── ICustomerRepository.cs
@@ -616,7 +616,7 @@ ProjectEverythingForHomeOnlineShop
 │   │   ├── JwtAuthenticationExtensions.cs
 │   │   ├── TokenGenerator.cs
 │   ├── LoggingConfig.cs
-│   ├── ServiceResult.cs    <!-- Klasse für spezielle Antwortformate für das Frontend -->
+│   ├── ServiceResult.cs    # Klasse für spezielle Antwortformate für das Frontend 
 │── logs
 │── appsettings.json
 │── appsettings.Development.json
