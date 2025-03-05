@@ -48,9 +48,11 @@ namespace ProjectEverythingForHomeOnlineShop.DataAccess.Persistence
             try
             {
                 var connectionString = _configuration.GetConnectionString("EverythingForHomeOnlineShopDB");
-                optionsBuilder.UseMySql(connectionString, 
+                optionsBuilder.UseMySql(connectionString,
                                         new MySqlServerVersion(new Version(8, 0, 38)),
-                                        mySqlOptions => mySqlOptions.MigrationsAssembly("ProjectEverythingForHomeOnlineShop"));
+                                        mySqlOptions => mySqlOptions
+                                            .MigrationsAssembly("ProjectEverythingForHomeOnlineShop")
+                                            .EnableRetryOnFailure());
             }
             catch (Exception ex)
             {
