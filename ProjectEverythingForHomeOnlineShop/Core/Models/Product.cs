@@ -26,6 +26,10 @@ namespace ProjectEverythingForHomeOnlineShop.Core.Models
         [Required, MaxLength(30)]
         public int StockQuantity { get; set; }
 
+        // field for catch error when two new order requests decrease product quantity at the same time
+        [Timestamp]
+        public byte[] RowVersion { get; set; } = null!;
+
         public ICollection<ShopOrderProduct> ShopOrderProducts { get; set; }
        
         

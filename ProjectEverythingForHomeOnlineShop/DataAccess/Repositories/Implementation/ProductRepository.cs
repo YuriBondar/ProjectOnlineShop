@@ -3,6 +3,7 @@ using ProjectEverythingForHomeOnlineShop.Application.DTOs;
 using ProjectEverythingForHomeOnlineShop.Application.Services.Implementation;
 using ProjectEverythingForHomeOnlineShop.Core.Models;
 using ProjectEverythingForHomeOnlineShop.DataAccess.Persistence;
+using ProjectEverythingForHomeOnlineShop.Infrastructure;
 
 namespace ProjectEverythingForHomeOnlineShop.DataAccess.Repositories.Implementation
 {
@@ -150,6 +151,10 @@ namespace ProjectEverythingForHomeOnlineShop.DataAccess.Repositories.Implementat
                 }
 
                 await _dbcontext.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                throw new InvalidOperationException("Update conflict. Please try again.");
             }
             catch (Exception ex)
             {

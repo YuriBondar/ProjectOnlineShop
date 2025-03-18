@@ -1,7 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Linq.Expressions;
+using Microsoft.EntityFrameworkCore;
 using ProjectEverythingForHomeOnlineShop.Application.DTOs.OrderDTOs;
 using ProjectEverythingForHomeOnlineShop.Core.Models;
+using ProjectEverythingForHomeOnlineShop.DataAccess.Persistence;
 using ProjectEverythingForHomeOnlineShop.DataAccess.Repositories;
 using ProjectEverythingForHomeOnlineShop.Infrastructure;
 using static System.Runtime.InteropServices.JavaScript.JSType;
@@ -14,7 +16,9 @@ namespace ProjectEverythingForHomeOnlineShop.Application.Services.Implementation
         IProductService _productService;
         ICustomerService _customerService;
         ILogger<AuthService> _logger;
-        public OrderService(IOrderRepository orderRepository, 
+        OnlineShopMySQLDatabaseContext _dbcontext;
+        public OrderService(OnlineShopMySQLDatabaseContext dbcontext,
+                            IOrderRepository orderRepository, 
                             IProductService productService,
                             ICustomerService customerService,
                             ILogger<AuthService> logger) 
@@ -23,6 +27,7 @@ namespace ProjectEverythingForHomeOnlineShop.Application.Services.Implementation
             _productService = productService;
             _customerService = customerService;
             _logger = logger;
+            _dbcontext = dbcontext;
         }
 
 
@@ -33,6 +38,9 @@ namespace ProjectEverythingForHomeOnlineShop.Application.Services.Implementation
         
         public async Task<ServiceResult<List<ProductInShopOrderDTO>>> AddNewOrderAsync(string userId, ShopOrderDTO newOrderDTO)
         {
+
+            using var transaction = await _dbcontext.Database.BeginTransactionAsync();
+          
             try
             {
                 /// check if some products are not enough on stock
@@ -85,11 +93,13 @@ namespace ProjectEverythingForHomeOnlineShop.Application.Services.Implementation
                 /// reduce the number of products in stock by the quantity that was ordered
                 
                 await _productService.UpdateStockAfterOrderAsync(newShopOrderProductList);
+                await transaction.CommitAsync();
 
                 return ServiceResult<List<ProductInShopOrderDTO>>.SuccessResult();
             }
             catch (Exception ex)
             {
+                await transaction.RollbackAsync();
                 return ServiceResult<List<ProductInShopOrderDTO>>.ErrorResult(ex.Message);
             }
         }
